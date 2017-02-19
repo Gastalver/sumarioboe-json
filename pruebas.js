@@ -2,13 +2,14 @@
  * Created by Miguel on 19/02/2017.
  */
 
-var ennumero = 20170208;
+var sumario = require('./sumarioboe-json'),
+    indice = "";
 
-var enstring = ennumero.toString();
+sumario('20140214',function(resultado){
+    var indice = resultado;
+    console.log(indice);
+});
 
 
-console.log(enstring.length);
 
-console.log(ennumero.toString().length);
 
-console.log(ennumero.slice(0,3));

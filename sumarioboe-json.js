@@ -23,27 +23,19 @@ function yyyymmdd(fecha){
     return ano.concat(mes, dia);
 }
 
-function sumarioJSON(fecha, callback){
+module.exports = function sumarioJSON(fecha, callback){
     httpGET('http://boe.es/diario_boe/xml.php?id=BOE-S-' + yyyymmdd(fecha),
         function (erroR, response, body) {
-            if (!erroR && response.statusCode == 200) {
-                //console.log("BODY:" + body);
-                parseString(body, function (err, result) {
-                    //console.log("PARSESTRING: " + result.error + "\n");
-                    jsonBOE = JSON.stringify(result);
-                    //console.log("innerJSONBOE: " + jsonBOE + "\n");
-                    callback(JSON.stringify(result));
+        if (!erroR && response.statusCode == 200) {
+            parseString(body, function (err, result) {
+                callback(JSON.stringify(result));
                 });
             }
             else {
-                callback(erroR);
+            callback(erroR);
             }
         });
 }
 
-function mycallback(resultado) {
-    console.log("resultadoSumarioJson: " + resultado);
-}
 
-sumarioJSON('20130225',mycallback);
 
