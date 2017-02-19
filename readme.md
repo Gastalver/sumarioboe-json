@@ -10,7 +10,7 @@ La API de Open Data del BOE aparece descrita en un documento pdf que se puede ve
 **callback**: El módulo es asincrono. Hacer un request al servidor de la Agencia del Boletín Estatal tarda varios segundos. La función callback será invocada con el sumario del BOE en formato json como parámetro, una vez recibido.. 
 
 ###Ejemplo
-Se asigna el sumario del dia en curso a la variable indice.
+Se asigna el sumario de hoy, en formato json, a la variable indice.
 ```javascript
 var sumario = require('./sumarioboe-json'),
     indice = "";
